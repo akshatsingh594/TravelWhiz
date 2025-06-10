@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TravelWhiz Assistant</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="logo">
+                <div class="logo-icon">🚂</div>
+                <div class="logo-text">
+                    <h1>TravelWhiz</h1>
+                    <span>Smart Railway Assistant</span>
+                </div>
+            </div>
+            <button class="settings-btn" id="settingsBtn">⚙️</button>
+        </div>
+
+        <!-- Quick Stats -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-value" id="predictionsToday">12</div>
+                <div class="stat-label">Predictions Today</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="successRate">94%</div>
+                <div class="stat-label">Success Rate</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="timesSaved">2.5h</div>
+                <div class="stat-label">Time Saved</div>
+            </div>
+        </div>
+
+        <!-- Chat Interface -->
+        <div class="chat-section">
+            <div class="chat-header">
+                <span>AI Travel Assistant</span>
+                <div class="voice-toggle" id="voiceToggle">
+                    <span class="voice-icon">🎤</span>
+                    <span class="voice-status">Tap to Speak</span>
+                </div>
+            </div>
+            <div class="chat-messages" id="chatMessages">
+                <div class="message bot-message">
+                    <span class="message-icon">🤖</span>
+                    <div class="message-content">
+                        <p>Hi! I can help you find trains, predict PNR confirmation, and auto-fill booking forms. Try asking:</p>
+                        <ul>
+                            <li>"Find trains from Delhi to Mumbai tomorrow"</li>
+                            <li>"Check PNR 1234567890"</li>
+                            <li>"When does Tatkal booking open?"</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="chat-input-container">
+                <input type="text" id="chatInput" placeholder="Ask me anything about train bookings..." />
+                <button id="sendBtn">Send</button>
+            </div>
+        </div>
+
+        <!-- Quick Actions -->
+        <div class="quick-actions">
+            <h3>Quick Actions</h3>
+            <div class="action-grid">
+                <button class="action-btn" id="pnrCheckBtn">
+                    <span class="action-icon">🔍</span>
+                    <span>Check PNR</span>
+                </button>
+                <button class="action-btn" id="tatkalTimerBtn">
+                    <span class="action-icon">⏰</span>
+                    <span>Tatkal Timer</span>
+                </button>
+                <button class="action-btn" id="alternativeRoutesBtn">
+                    <span class="action-icon">🛤️</span>
+                    <span>Alt Routes</span>
+                </button>
+                <button class="action-btn" id="passengerDetailsBtn">
+                    <span class="action-icon">👥</span>
+                    <span>Auto-Fill</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Recent Activity -->
+        <div class="recent-activity">
+            <h3>Recent Activity</h3>
+            <div class="activity-list" id="activityList">
+                <div class="activity-item">
+                    <div class="activity-icon confirmed">✅</div>
+                    <div class="activity-details">
+                        <div class="activity-title">PNR 1234567890</div>
+                        <div class="activity-desc">Predicted 89% confirmation - Now CNF!</div>
+                        <div class="activity-time">2 hours ago</div>
+                    </div>
+                </div>
+                <div class="activity-item">
+                    <div class="activity-icon searching">🔄</div>
+                    <div class="activity-details">
+                        <div class="activity-title">Delhi → Mumbai</div>
+                        <div class="activity-desc">Found 3 alternative routes with better chances</div>
+                        <div class="activity-time">5 hours ago</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Voice Listening Overlay -->
+        <div class="voice-overlay" id="voiceOverlay">
+            <div class="voice-animation">
+                <div class="pulse-ring"></div>
+                <div class="voice-button">🎤</div>
+            </div>
+            <p class="voice-text">Listening... Speak your travel query</p>
+            <button class="voice-cancel" id="voiceCancelBtn">Cancel</button>
+        </div>
+
+        <!-- PNR Quick Check Modal -->
+        <div class="modal" id="pnrModal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Quick PNR Check</h3>
+                    <button class="modal-close" id="pnrModalClose">×</button>
+                </div>
+                <div class="modal-body">
+                    <input type="text" id="pnrInput" placeholder="Enter 10-digit PNR number" maxlength="10" />
+                    <button id="checkPnrBtn" class="primary-btn">Check Status</button>
+                    <div class="pnr-result" id="pnrResult"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tatkal Timer Modal -->
+        <div class="modal" id="tatkalModal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Tatkal Booking Timer</h3>
+                    <button class="modal-close" id="tatkalModalClose">×</button>
+                </div>
+                <div class="modal-body">
+                    <div class="timer-display">
+                        <div class="timer-circle">
+                            <div class="timer-text" id="timerText">10:00:00</div>
+                            <div class="timer-label">Until Tatkal Opens</div>
+                        </div>
+                    </div>
+                    <div class="timer-details">
+                        <p><strong>Next Tatkal Window:</strong> Tomorrow 10:00 AM</p>
+                        <p><strong>For Date:</strong> Day after tomorrow</p>
+                    </div>
+                    <button id="prepareBookingBtn" class="primary-btn">Prepare Auto-Fill</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="popup.js"></script>
+</body>
+</html>

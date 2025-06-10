@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TravelWhiz Settings</title>
+    <link rel="stylesheet" href="settings.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="logo">
+                <div class="logo-icon">🚂</div>
+                <div class="logo-text">
+                    <h1>TravelWhiz Settings</h1>
+                    <span>Configure your smart railway assistant</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Settings Sections -->
+        <div class="settings-content">
+            <!-- General Settings -->
+            <div class="settings-section">
+                <h2>🔧 General Settings</h2>
+                <div class="setting-item">
+                    <div class="setting-info">
+                        <label for="notificationsEnabled">Enable Notifications</label>
+                        <span class="setting-desc">Get alerts for PNR status changes and Tatkal bookings</span>
+                    </div>
+                    <div class="setting-control">
+                        <label class="toggle">
+                            <input type="checkbox" id="notificationsEnabled" checked>
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="setting-item">
+                    <div class="setting-info">
+                        <label for="voiceEnabled">Voice Recognition</label>
+                        <span class="setting-desc">Use voice commands for hands-free booking assistance</span>
+                    </div>
+                    <div class="setting-control">
+                        <label class="toggle">
+                            <input type="checkbox" id="voiceEnabled" checked>
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="setting-item">
+                    <div class="setting-info">
+                        <label for="autoOpenTatkal">Auto-open Tatkal Pages</label>
+                        <span class="setting-desc">Automatically open booking pages when Tatkal alerts trigger</span>
+                    </div>
+                    <div class="setting-control">
+                        <label class="toggle">
+                            <input type="checkbox" id="autoOpenTatkal">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="setting-item">
+                    <div class="setting-info">
+                        <label for="affiliateTracking">Support Development</label>
+                        <span class="setting-desc">Help us improve TravelWhiz through anonymous usage analytics</span>
+                    </div>
+                    <div class="setting-control">
+                        <label class="toggle">
+                            <input type="checkbox" id="affiliateTracking" checked>
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Passenger Information -->
+            <div class="settings-section">
+                <h2>👥 Passenger Information</h2>
+                <div class="passenger-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="passengerName">Full Name</label>
+                            <input type="text" id="passengerName" placeholder="Enter your full name">
+                        </div>
+                        <div class="form-group">
+                            <label for="passengerAge">Age</label>
+                            <input type="number" id="passengerAge" placeholder="Age" min="1" max="120">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="passengerGender">Gender</label>
+                            <select id="passengerGender">
+                                <option value="">Select Gender</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                                <option value="Transgender">Transgender</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="berthPreference">Berth Preference</label>
+                            <select id="berthPreference">
+                                <option value="">No Preference</option>
+                                <option value="Lower">Lower</option>
+                                <option value="Middle">Middle</option>
+                                <option value="Upper">Upper</option>
+                                <option value="Side Lower">Side Lower</option>
+                                <option value="Side Upper">Side Upper</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="mobileNumber">Mobile Number</label>
+                            <input type="tel" id="mobileNumber" placeholder="10-digit mobile number">
+                        </div>
+                        <div class="form-group">
+                            <label for="emailAddress">Email Address</label>
+                            <input type="email" id="emailAddress" placeholder="your.email@example.com">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group full-width">
+                            <label for="idProof">ID Proof Type</label>
+                            <select id="idProof">
+                                <option value="">Select ID Proof</option>
+                                <option value="Aadhar Card">Aadhar Card</option>
+                                <option value="PAN Card">PAN Card</option>
+                                <option value="Driving License">Driving License</option>
+                                <option value="Passport">Passport</option>
+                                <option value="Voter ID">Voter ID</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <button id="savePassengerData" class="save-btn">Save Passenger Information</button>
+                </div>
+            </div>
+
+            <!-- Quota Preferences -->
+            <div class="settings-section">
+                <h2>🎯 Quota Preferences</h2>
+                <div class="quota-info">
+                    <p>TravelWhiz can automatically select the best quota for you based on your profile:</p>
+                </div>
+
+                <div class="quota-options">
+                    <div class="quota-item">
+                        <div class="quota-info">
+                            <label for="seniorCitizenQuota">Senior Citizen Quota</label>
+                            <span class="quota-desc">For passengers aged 60+ (Male) or 58+ (Female)</span>
+                        </div>
+                        <div class="quota-control">
+                            <label class="toggle">
+                                <input type="checkbox" id="seniorCitizenQuota">
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="quota-item">
+                        <div class="quota-info">
+                            <label for="ladiesQuota">Ladies Quota</label>
+                            <span class="quota-desc">For female passengers (automatically detected)</span>
+                        </div>
+                        <div class="quota-control">
+                            <label class="toggle">
+                                <input type="checkbox" id="ladiesQuota">
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="quota-item">
+                        <div class="quota-info">
+                            <label for="divyangjanQuota">Divyangjan Quota</label>
+                            <span class="quota-desc">For passengers with disabilities</span>
+                        </div>
+                        <div class="quota-control">
+                            <label class="toggle">
+                                <input type="checkbox" id="divyangjanQuota">
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="quota-item">
+                        <div class="quota-info">
+                            <label for="tatkalQuota">Tatkal Quota</label>
+                            <span class="quota-desc">For emergency bookings (premium charges apply)</span>
+                        </div>
+                        <div class="quota-control">
+                            <label class="toggle">
+                                <input type="checkbox" id="tatkalQuota" checked>
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Alert Settings -->
+            <div class="settings-section">
+                <h2>🔔 Alert Settings</h2>
+                <div class="alert-options">
+                    <div class="alert-item">
+                        <div class="alert-info">
+                            <label for="pnrStatusAlerts">PNR Status Change Alerts</label>
+                            <span class="alert-desc">Get notified when your PNR status changes</span>
+                        </div>
+                        <div class="alert-control">
+                            <label class="toggle">
+                                <input type="checkbox" id="pnrStatusAlerts" checked>
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="alert-item">
+                        <div class="alert-info">
+                            <label for="tatkalAlerts">Tatkal Booking Alerts</label>
+                            <span class="alert-desc">5-minute countdown before Tatkal booking opens</span>
+                        </div>
+                        <div class="alert-control">
+                            <label class="toggle">
+                                <input type="checkbox" id="tatkalAlerts" checked>
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="alert-item">
+                        <div class="alert-info">
+                            <label for="alternativeAlerts">Alternative Route Alerts</label>
+                            <span class="alert-desc">Get notified when better alternatives become available</span>
+                        </div>
+                        <div class="alert-control">
+                            <label class="toggle">
+                                <input type="checkbox" id="alternativeAlerts" checked>
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="alert-item">
+                        <div class="alert-info">
+                            <label for="priceDropAlerts">Price Drop Alerts</label>
+                            <span class="alert-desc">Get notified when ticket prices drop for your routes</span>
+                        </div>
+                        <div class="alert-control">
+                            <label class="toggle">
+                                <input type="checkbox" id="priceDropAlerts">
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Data & Privacy -->
+            <div class="settings-section">
+                <h2>🔒 Data & Privacy</h2>
+                <div class="privacy-options">
+                    <div class="privacy-item">
+                        <div class="privacy-info">
+                            <label>Data Retention</label>
+                            <span class="privacy-desc">How long to keep your activity data</span>
+                        </div>
+                        <div class="privacy-control">
+                            <select id="dataRetention">
+                                <option value="7">7 days</option>
+                                <option value="30" selected>30 days</option>
+                                <option value="90">90 days</option>
+                                <option value="365">1 year</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="privacy-actions">
+                        <button id="exportData" class="secondary-btn">Export My Data</button>
+                        <button id="clearData" class="danger-btn">Clear All Data</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- About -->
+            <div class="settings-section">
+                <h2>ℹ️ About TravelWhiz</h2>
+                <div class="about-content">
+                    <div class="version-info">
+                        <span class="version-label">Version:</span>
+                        <span class="version-number" id="versionNumber">1.0.0</span>
+                    </div>
+                    <div class="about-text">
+                        <p>TravelWhiz is your intelligent railway booking companion, powered by AI to make train travel planning effortless and efficient.</p>
+                        <div class="about-links">
+                            <a href="#" id="helpLink">Help & Support</a>
+                            <a href="#" id="privacyLink">Privacy Policy</a>
+                            <a href="#" id="feedbackLink">Send Feedback</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Save Notification -->
+        <div class="save-notification" id="saveNotification">
+            <div class="notification-content">
+                <span class="notification-icon">✅</span>
+                <span class="notification-text">Settings saved successfully!</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="settings.js"></script>
+</body>
+</html>
