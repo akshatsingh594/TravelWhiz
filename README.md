@@ -47,7 +47,7 @@ Unlock the full potential of TravelWhiz with our Pro subscription:
 * **Akshat Singh Attribution:** Find proper attribution in the footer.
 * **Direct Contact:** Easily reach out via direct email.
 * **Social Connectivity:** Connect on Instagram alongside other social media platforms.
-* **Personal Touch:** A dedicated personal message encouraging user feedback.
+* **User Feedback and Help is highly appreciated.
 
 ---
 
